@@ -1,0 +1,92 @@
+.inumber {
+  border: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.tableNumber {
+  margin-left: 50px;
+}
+
+.tableNumber td {
+  padding: 0%;
+  height: 30px;
+  width: 30px;
+}
+
+.tableNumber td input {
+  text-align: center;
+}
+
+table {
+  font-size: 12px;
+}
+
+.selectpicker {
+  border: 0;
+  width: 100% !important;
+  height: 100%;
+}
+
+a.btn-circlee {
+  border-radius: 100%;
+  height: 2.5rem;
+  width: 2.5rem;
+  font-size: 1rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media print {
+  table {
+    border: none !important;
+  }
+
+  #section-to-print, #section-to-print * {
+    visibility: visible;
+  }
+  #section-to-print {
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+
+  .print-style {
+    border: solid 8px;
+    padding: 10px;
+    height: 100%;
+  }
+  
+  input{
+    height: 18px !important;
+    padding: 0;
+  }
+
+  .td {
+    padding: 0 !important;
+  }
+  
+  .tableNumber td {
+    padding: 0%;
+    height: 20px;
+    width: 20px;
+}
+
+ .peralatan td{
+    padding: 0% !important ;
+   
+}
+
+.pagebreak { page-break-before: always; }
+  
+}
+
+.bs-caret{
+  display: none;
+}
+
+.selectpicker{
+  overflow: scroll !important;
+  height: 100%;
+}
