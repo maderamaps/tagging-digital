@@ -17,6 +17,8 @@
     <script src="{{ asset('js/tagging_virtual.js') }}" rel="stylesheet"></script>
     <script src="https://unpkg.com/jspdf@latest/dist/jspdf.umd.min.js"></script>
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.js" defer></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/rowreorder/1.2.8/js/dataTables.rowReorder.min.js" defer></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/responsive/2.2.9/js/dataTables.responsive.min.js" defer></script>
     
 
     <!-- Fonts -->
@@ -30,13 +32,16 @@
     <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ asset('fontawesome-free-5.15.1-web/css/all.min.css') }}" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/responsive/2.2.9/css/responsive.dataTables.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/rowgroup/1.1.3/css/rowGroup.dataTables.min.css">
   
       <!-- Sweet Alert Plugin JavaScript -->
       <script src="js/bootstrap-datepicker.min.js"></script>
 
       <!-- Sweet Alert Plugin JavaScript -->
       <script src="js/sweetalert.min.js"></script>
-    
+      
+      
     
     
 </head>

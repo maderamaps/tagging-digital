@@ -95,6 +95,7 @@ class dashboard extends Controller
                                     ->orWhere('status', 'LIKE',"%{$search}%")
                                     ->orWhere('no_tagging', 'LIKE',"%{$search}%")
                                     ->count();
+                                    
                 }
         }else{
                 if($request->filter == 'U1'){
@@ -154,15 +155,15 @@ class dashboard extends Controller
             {
 
 
-                $nestedData['no'] = $i++;
+                $nestedData['no'] = $i;
                 $nestedData['no_tagging'] = $surat->no_tagging;
-                $nestedData['keterangan_kks'] = $surat->keterangan_kks;
-                $nestedData['created_at'] = date('j M Y h:i a',strtotime($surat->created_at));
+                $nestedData['keterangan_kks'] = $surat->no_kks;
+                $nestedData['created_at'] = date('j M Y H:i',strtotime($surat->created_at));
                 $nestedData['status'] = $surat->status;
                 $nestedData['Action'] = '<a class="btn btn-warning btn-sm btn-circlee" data-target="#view_surat_modal" data-toggle="modal" onclick="view('.$surat->id.')"><i class="fa fa-eye" data-toggle="tooltip" data-placement="top" title="View"></i></a>
-                                         <a class="btn btn-danger btn-sm btn-circlee" id="remove'.$surat->id.'" data-id="'.$surat->id.'" data-tagging="'.$surat->no_tagging.'" onclick="delete_surat('.$surat->id.')"><i class="fa fa-trash" data-toggle="tooltip" data-placement="top" title="delete"></i></a>';
+                                         <a class="btn btn-danger btn-sm btn-circlee" id="remove'.$surat->id.'" data-no="'.$i.'" data-id="'.$surat->id.'" data-tagging="'.$surat->no_tagging.'" onclick="delete_surat('.$surat->id.')"><i class="fa fa-trash" data-toggle="tooltip" data-placement="top" title="delete"></i></a>';
                 $data[] = $nestedData;
-
+                $i++;
             }
         }
           
@@ -182,7 +183,7 @@ class dashboard extends Controller
     {
         $no_tagging = $request->type.'-'.$request->no_tagging3.$request->no_tagging4.$request->no_tagging5.'-'.$request->unit;
         $validator = Validator::make($request->all(), [
-            $no_tagging => 'unique:project.surat,no_tagging'
+            'no_tagging' => 'required|unique:surat,no_tagging'
         ]);
 
         if ($validator->passes()){
@@ -196,6 +197,7 @@ class dashboard extends Controller
             $surat->grounding = $request->grounding;
             $surat->pengaman = $request->pengaman;
             $surat->jml_pekerja = $request->jumlah_pekerja;
+    
             if($surat->save()){
                 $date = new DateSurat;
                 $date->id_surat = $surat->id;
@@ -225,7 +227,8 @@ class dashboard extends Controller
                     $date->date = $request->rev1_rencana_selesai_date.' '.$request->rev1_rencana_selesai_time;
                     $date->created_by = $request->rev1_rencana_selesai_oleh;
                     $date->save();
-                }else if($request->rev2_rencana_selesai_date != "" and $request->rev2_rencana_selesai_time != ""){
+                }
+                if($request->rev2_rencana_selesai_date != "" and $request->rev2_rencana_selesai_time != ""){
                     $date = new DateSurat;
                     $date->id_surat = $surat->id;
                     $date->type = 'Rev2 rencana selesai';
@@ -269,13 +272,12 @@ class dashboard extends Controller
 
     public function release_surat(request $request)
     {
-        $surat = surat::findOrFail($request->id_print_released);
+        $surat = surat::find($request->id_print_released);
         $surat->siap_dioperasikan = $request->siap_dioperasikan;
         $surat->dipindahkan = $request->dipindahkan;
         $surat->bersih = $request->bersih;
         $surat->grounding_realeased = $request->grounding;
         $surat->status = 'Selesai';
-        $surat->created_at = false;
         $surat->save();
 
         $peralatan_surat_get = PeralatanSurat::where('id_surat',$surat->id)->get();

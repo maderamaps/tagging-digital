@@ -61,16 +61,16 @@
                         <td colspan="2" width="65%"  style="vertical-align: middle;">
                             <div style="display: flex"> <b>Nomor Tagging</b> 
                             <table class="tableNumber">
-                                <td><input type="text" maxlength="1" class="inumber" id="no_tagging1" readonly></td>
-                                <td><input type="text" maxlength="1" class="inumber" id="no_tagging2" readonly></td>
-                                <td><input type="text" maxlength="1" class="inumber" id="no_tagging3" readonly></td>
+                                <td><input type="text" maxlength="1" class="inumber" id="no_taggingview1" readonly></td>
+                                <td><input type="text" maxlength="1" class="inumber" id="no_taggingview2" readonly></td>
+                                <td><input type="text" maxlength="1" class="inumber" id="no_taggingview3" readonly></td>
                                 <td style="border: 0"></td>
-                                <td><input type="text" maxlength="1" class="inumber" id="no_tagging4" readonly></td>
-                                <td><input type="text" maxlength="1" class="inumber" id="no_tagging5" readonly></td>
-                                <td><input type="text" maxlength="1" class="inumber" id="no_tagging6" readonly></td>
+                                <td><input type="text" maxlength="1" class="inumber" id="no_taggingview4" readonly></td>
+                                <td><input type="text" maxlength="1" class="inumber" id="no_taggingview5" readonly></td>
+                                <td><input type="text" maxlength="1" class="inumber" id="no_taggingview6" readonly></td>
                                 <td style="border: 0"></td>
-                                <td><input type="text" maxlength="1" class="inumber" id="no_tagging7" readonly></td>
-                                <td><input type="text" maxlength="1" class="inumber" id="no_tagging8" readonly></td>
+                                <td><input type="text" maxlength="1" class="inumber" id="no_taggingview7" readonly></td>
+                                <td><input type="text" maxlength="1" class="inumber" id="no_taggingview8" readonly></td>
                             </table> 
                             </div>
                         </td>
@@ -106,27 +106,27 @@
                     </tr>
                     <tr>
                         <td colspan="1" style="border-bottom: 0; border-left: 0; border-right: 0">Diajukan</td>
-                        <td colspan="1" style="border-bottom: 0; border-left: 0; border-right: 0">Tgl: <input type="date" class="mr-5" id="tgl_diajukan" style="border: 0px" readonly> Jam: <input type="time" id="jam_diajukan" style="border: 0px" readonly></td>
+                        <td colspan="1" style="border-bottom: 0; border-left: 0; border-right: 0">Tgl: <input class="mr-5" id="tgl_diajukan" style="border: 0px" readonly> Jam: <input id="jam_diajukan" style="border: 0px" readonly></td>
                         <td colspan="2" style="border-bottom: 0; border-left: 0; border-right: 0"><div style="display: flex">Oleh :<div><input type="text" class="inumber" id="by_diajukan" readonly></div></div></td>
                     </tr>
                     <tr>
                     <td colspan="1" style="border: 0">Dilaksanakan</td>
-                    <td colspan="1" style="border: 0">Tgl: <input type="date" class="mr-5" id="tgl_dilaksanakan" style="border: 0px" readonly> Jam: <input type="time" id="jam_dilaksanakan" style="border: 0px" readonly></td>
+                    <td colspan="1" style="border: 0">Tgl: <input class="mr-5" id="tgl_dilaksanakan" style="border: 0px" readonly> Jam: <input id="jam_dilaksanakan" style="border: 0px" readonly></td>
                     <td colspan="2" style="border: 0"><div style="display: flex">Oleh :<div><input type="text" class="inumber" id="by_dilaksanakan" readonly></div></div></td>
                     </tr>
                     <tr>
                     <td colspan="1" style="border: 0">Rencana selesai</td>
-                    <td colspan="1" style="border: 0">Tgl: <input type="date" class="mr-5" id="tgl_rencana_selesai" style="border: 0px" readonly> Jam: <input type="time" id="jam_rencana_selesai" style="border: 0px" readonly></td>
+                    <td colspan="1" style="border: 0">Tgl: <input class="mr-5" id="tgl_rencana_selesai" style="border: 0px" readonly> Jam: <input id="jam_rencana_selesai" style="border: 0px" readonly></td>
                     <td colspan="2" style="border: 0"><div style="display: flex">Oleh :<div><input type="text" class="inumber" id="by_rencana_selesai" readonly></div></div></td>
                     </tr>
                     <tr>
                     <td colspan="1" style="border: 0">Rev1 rencana selesai</td>
-                    <td colspan="1" style="border: 0">Tgl: <input type="date" class="mr-5" id="tgl_rev1_rencana_selesai" style="border: 0px" readonly> Jam: <input type="time" id="jam_rev1_rencana_selesai" style="border: 0px" readonly></td>
+                    <td colspan="1" style="border: 0">Tgl: <input class="mr-5" id="tgl_rev1_rencana_selesai" style="border: 0px" readonly> Jam: <input id="jam_rev1_rencana_selesai" style="border: 0px" readonly></td>
                     <td colspan="2" style="border: 0"><div style="display: flex">Oleh :<div><input type="text" class="inumber" id="by_rev1_rencana_selesai" readonly></div></div></td>
                     </tr>
                     <tr>
                     <td colspan="1" style="border: 0">Rev2 rencana selesai</td>
-                    <td colspan="1" style="border: 0">Tgl: <input type="date" class="mr-5" id="tgl_rev2_rencana_selesai" style="border: 0px" readonly> Jam: <input type="time" id="jam_rev2_rencana_selesai" style="border: 0px" readonly></td>
+                    <td colspan="1" style="border: 0">Tgl: <input class="mr-5" id="tgl_rev2_rencana_selesai" style="border: 0px" readonly> Jam: <input id="jam_rev2_rencana_selesai" style="border: 0px" readonly></td>
                     <td colspan="2" style="border: 0"><div style="display: flex">Oleh :<div><input type="text" class="inumber" id="by_rev2_rencana_selesai" readonly></div></div></td>
                     </tr>
                     <tr>
@@ -254,19 +254,19 @@
                     </tr>
                     <tr>
                         <td colspan="2" style="border: 0">Apakah peralatan sudah siap dites dan dioperasikan ?</td>
-                        <td colspan="2" style="border: 0">Ya <input type="radio" name="siap_dioperasikan" id="siap_dioperasikan_ya" value="ya" onclick="return false;"> &emsp; Tidak <input type="radio" name="siap_dioperasikan" id="siap_dioperasikan_tidak" value="tidak" onclick="return false;"></td>
+                        <td colspan="2" style="border: 0">Ya <input type="checkbox" name="siap_dioperasikan" id="siap_dioperasikan_ya" value="ya" onclick="return false;"> &emsp; Tidak <input type="checkbox" name="siap_dioperasikan" id="siap_dioperasikan_tidak" value="tidak" onclick="return false;"></td>
                     </tr>
                     <tr>
                     <td colspan="2" style="border: 0">Apakah alat kerja sudah dipindahkan dari lokasi kerja ?</td>
-                    <td colspan="2" style="border: 0">Ya <input type="radio" name="dipindahkan" id="dipindahkan_ya" value="ya" onclick="return false;"> &emsp; Tidak <input type="radio" name="dipindahkan" id="dipindahkan_tidak" value="tidak" onclick="return false;"></td>
+                    <td colspan="2" style="border: 0">Ya <input type="checkbox" name="dipindahkan" id="dipindahkan_ya" value="ya" onclick="return false;"> &emsp; Tidak <input type="checkbox" name="dipindahkan" id="dipindahkan_tidak" value="tidak" onclick="return false;"></td>
                     </tr>
                     <tr>
                     <td colspan="2" style="border: 0">Apakah pekerjaan memerlukan grounding / pentanahan ?</td>
-                    <td colspan="2" style="border: 0">Ya <input type="radio" name="grounding" id="grounding_released_ya" value="ya" onclick="return false;"> &emsp; Tidak <input type="radio" name="grounding" id="grounding_released_tidak" value="tidak" onclick="return false;"></td>
+                    <td colspan="2" style="border: 0">Ya <input type="checkbox" name="grounding" id="grounding_released_ya" value="ya" onclick="return false;"> &emsp; Tidak <input type="checkbox" name="grounding" id="grounding_released_tidak" value="tidak" onclick="return false;"></td>
                     </tr>
                     <tr>
                     <td colspan="2" style="border: 0">Apakah lokasi kerja sudah bersih dan aman terhadap alat ?</td>
-                    <td colspan="2" style="border: 0">Ya <input type="radio" name="bersih" id="bersih_ya" value="ya" onclick="return false;"> &emsp; Tidak <input type="radio" name="bersih" id="bersih_tidak" value="tidak" onclick="return false;"> </td>
+                    <td colspan="2" style="border: 0">Ya <input type="checkbox" name="bersih" id="bersih_ya" value="ya" onclick="return false;"> &emsp; Tidak <input type="checkbox" name="bersih" id="bersih_tidak" value="tidak" onclick="return false;"> </td>
                     </tr>
                     <tr>
                     <td colspan="2" style="border: 0">Jumlah pekerja yang terlibat dalam pekerjaan</td>
@@ -274,27 +274,27 @@
                     </tr>
                     <tr>
                         <td colspan="1" style="border-bottom: 0; border-left: 0; border-right: 0">Diajukan</td>
-                        <td colspan="1" style="border-bottom: 0; border-left: 0; border-right: 0">Tgl: <input type="date" class="mr-5" id="tgl_diajukan_released" style="border: 0px" readonly> Jam: <input type="time" id="jam_diajukan_released" style="border: 0px" readonly></td>
+                        <td colspan="1" style="border-bottom: 0; border-left: 0; border-right: 0">Tgl: <input class="mr-5" id="tgl_diajukan_released" style="border: 0px" readonly> Jam: <input id="jam_diajukan_released" style="border: 0px" readonly></td>
                         <td colspan="2" style="border-bottom: 0; border-left: 0; border-right: 0"><div style="display: flex">Oleh :<div><input type="text" class="inumber" id="by_diajukan_released" readonly></div></div></td>
                     </tr>
                     <tr>
                     <td colspan="1" style="border: 0">Dilaksanakan</td>
-                    <td colspan="1" style="border: 0">Tgl: <input type="date" class="mr-5" id="tgl_dilaksanakan_released" style="border: 0px" readonly> Jam: <input type="time" id="jam_dilaksanakan_released" style="border: 0px" readonly></td>
+                    <td colspan="1" style="border: 0">Tgl: <input class="mr-5" id="tgl_dilaksanakan_released" style="border: 0px" readonly> Jam: <input id="jam_dilaksanakan_released" style="border: 0px" readonly></td>
                     <td colspan="2" style="border: 0"><div style="display: flex">Oleh :<div><input type="text" class="inumber" id="by_dilaksanakan_released" readonly></div></div></td>
                     </tr>
                     <tr>
                     <td colspan="1" style="border: 0">Rencana selesai</td>
-                    <td colspan="1" style="border: 0">Tgl: <input type="date" class="mr-5" id="tgl_rencana_selesai_released" style="border: 0px" readonly> Jam: <input type="time" id="jam_rencana_selesai_released" style="border: 0px" readonly></td>
+                    <td colspan="1" style="border: 0">Tgl: <input class="mr-5" id="tgl_rencana_selesai_released" style="border: 0px" readonly> Jam: <input id="jam_rencana_selesai_released" style="border: 0px" readonly></td>
                     <td colspan="2" style="border: 0"><div style="display: flex">Oleh :<div><input type="text" class="inumber" id="by_rencana_selesai_released"></div></div></td>
                     </tr>
                     <tr>
                     <td colspan="1" style="border: 0">Rev1 rencana selesai</td>
-                    <td colspan="1" style="border: 0">Tgl: <input type="date" class="mr-5" id="tgl_rev1_rencana_selesai_released" style="border: 0px" readonly> Jam: <input type="time" id="jam_rev1_rencana_selesai_released" style="border: 0px" readonly></td>
+                    <td colspan="1" style="border: 0">Tgl: <input class="mr-5" id="tgl_rev1_rencana_selesai_released" style="border: 0px" readonly> Jam: <input id="jam_rev1_rencana_selesai_released" style="border: 0px" readonly></td>
                     <td colspan="2" style="border: 0"><div style="display: flex">Oleh :<div><input type="text" class="inumber" id="by_rev1_rencana_selesai_released" readonly></div></div></td>
                     </tr>
                     <tr>
                     <td colspan="1" style="border: 0">Rev2 rencana selesai</td>
-                    <td colspan="1" style="border: 0">Tgl: <input type="date" class="mr-5" id="tgl_rev2_rencana_selesai_released" style="border: 0px" readonly> Jam: <input type="time" id="jam_rev2_rencana_selesai_released" style="border: 0px" readonly></td>
+                    <td colspan="1" style="border: 0">Tgl: <input class="mr-5" id="tgl_rev2_rencana_selesai_released" style="border: 0px" readonly> Jam: <input id="jam_rev2_rencana_selesai_released" style="border: 0px" readonly></td>
                     <td colspan="2" style="border: 0"><div style="display: flex">Oleh :<div><input type="text" class="inumber" id="by_rev2_rencana_selesai_released" readonly></div></div></td>
                     </tr>
                     <tr>

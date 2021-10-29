@@ -6,6 +6,8 @@ $(document).ready(function() {
     var table_surat = $('#table-list').dataTable({
         "processing": true,
         "serverSide": true,
+        responsive: true,
+        "aaSorting": [],
         "order": [[ 3, "desc" ]],
         "ajax":{
                 "url": "filter_list",
@@ -14,13 +16,19 @@ $(document).ready(function() {
                 "data":{ _token: CSRF_TOKEN}
               },
         "columns": [
-            { "data": "no" },
+            { "data": "no"},
             { "data": "no_tagging" },
             { "data": "keterangan_kks" },
             { "data": "created_at" },
             { "data": "status" },
             { "data": "Action" }
-        ]	 
+        ],
+        "columnDefs": [
+          { "orderable": false, "targets": 0 }
+        ],
+        "fnCreatedRow": function( nRow, columns, iDataIndex ) {
+          $(nRow).attr('id', 'baris'+columns['no']);
+      }
 
     });
   }
@@ -30,6 +38,7 @@ window.delete_surat = function (id){
   
   var no_tagging = $('#remove'+id).attr('data-tagging');
   var id = $('#remove'+id).attr('data-id');
+  var no_row = $('#remove'+id).attr('data-no');
 
   swal({
   title: "Are you sure delete "+no_tagging+"?",
@@ -53,12 +62,10 @@ window.delete_surat = function (id){
               _token: CSRF_TOKEN
           },
           success: function(dataResult){
-            // $('#tr-'+id).hide('slow');
             $('#message').addClass('alert-success');
             $('#message').html('Delete '+no_tagging+' Success ');
             $('#message').show('slow');
-            $('#table-list').DataTable().destroy();
-            table_surat()
+            $('#baris'+no_row).hide('slow');
           }
         })
       });
@@ -79,15 +86,14 @@ window.view = function (id){
               _token: CSRF_TOKEN
           },
           success: function(dataResult){
-            $('#no_tagging1').val(dataResult['surat'][0].no_tagging.charAt(0))
-            $('#no_tagging2').val(dataResult['surat'][0].no_tagging.charAt(1))
-            $('#no_tagging3').val(dataResult['surat'][0].no_tagging.charAt(2))
-            $('#no_tagging4').val(dataResult['surat'][0].no_tagging.charAt(4))
-            $('#no_tagging5').val(dataResult['surat'][0].no_tagging.charAt(5))
-            $('#no_tagging6').val(dataResult['surat'][0].no_tagging.charAt(6))
-            $('#no_tagging7').val(dataResult['surat'][0].no_tagging.charAt(8))
-            $('#no_tagging8').val(dataResult['surat'][0].no_tagging.charAt(9))
-              
+            $('#no_taggingview1').val(dataResult['surat'][0].no_tagging.charAt(0))
+            $('#no_taggingview2').val(dataResult['surat'][0].no_tagging.charAt(1))
+            $('#no_taggingview3').val(dataResult['surat'][0].no_tagging.charAt(2))
+            $('#no_taggingview4').val(dataResult['surat'][0].no_tagging.charAt(4))
+            $('#no_taggingview5').val(dataResult['surat'][0].no_tagging.charAt(5))
+            $('#no_taggingview6').val(dataResult['surat'][0].no_tagging.charAt(6))
+            $('#no_taggingview7').val(dataResult['surat'][0].no_tagging.charAt(8))
+            $('#no_taggingview8').val(dataResult['surat'][0].no_tagging.charAt(9))
             $('#no_wo').val(dataResult['surat'][0].no_wo);
             $('#no_kks').val(dataResult['surat'][0].no_kks);
             $('#keterangan_kks').val(dataResult['surat'][0].keterangan_kks);
@@ -100,23 +106,47 @@ window.view = function (id){
            
 
             try{
-              $('#tgl_diajukan').val(dataResult['surat'][0].date.substring(0,10));
+              var date = new Date(dataResult['surat'][0].date.substring(0,10));
+              var year= date.toLocaleString('en-us', { year: 'numeric' });
+              var month = date.toLocaleString('en-us', { month: 'short' });
+              var day = date.toLocaleString('en-us', { day: '2-digit' });
+              $('#tgl_diajukan').val(day+'/'+month+'/'+year);
               $('#jam_diajukan').val(dataResult['surat'][0].date.substring(11,16));
               $('#by_diajukan').val(dataResult['surat'][0].created_by);
   
-              $('#tgl_dilaksanakan').val(dataResult['surat'][1].date.substring(0,10));
+
+              var date = new Date(dataResult['surat'][1].date.substring(0,10));
+              var year= date.toLocaleString('en-us', { year: 'numeric' });
+              var month = date.toLocaleString('en-us', { month: 'short' });
+              var day = date.toLocaleString('en-us', { day: '2-digit' });
+              $('#tgl_dilaksanakan').val(day+'/'+month+'/'+year);
               $('#jam_dilaksanakan').val(dataResult['surat'][1].date.substring(11,16));
               $('#by_dilaksanakan').val(dataResult['surat'][1].created_by);
   
-              $('#tgl_rencana_selesai').val(dataResult['surat'][2].date.substring(0,10));
+
+              var date = new Date(dataResult['surat'][2].date.substring(0,10));
+              var year= date.toLocaleString('en-us', { year: 'numeric' });
+              var month = date.toLocaleString('en-us', { month: 'short' });
+              var day = date.toLocaleString('en-us', { day: '2-digit' });
+              $('#tgl_rencana_selesai').val(day+'/'+month+'/'+year);
               $('#jam_rencana_selesai').val(dataResult['surat'][2].date.substring(11,16));
               $('#by_rencana_selesai').val(dataResult['surat'][2].created_by);
 
-              $('#tgl_rev1_rencana_selesai').val(dataResult['surat'][3].date.substring(0,10));
+
+              var date = new Date(dataResult['surat'][3].date.substring(0,10));
+              var year= date.toLocaleString('en-us', { year: 'numeric' });
+              var month = date.toLocaleString('en-us', { month: 'short' });
+              var day = date.toLocaleString('en-us', { day: '2-digit' });
+              $('#tgl_rev1_rencana_selesai').val(day+'/'+month+'/'+year);
               $('#jam_rev1_rencana_selesai').val(dataResult['surat'][3].date.substring(11,16));
               $('#by_rev1_rencana_selesai').val(dataResult['surat'][3].created_by);
   
-              $('#tgl_rev2_rencana_selesai').val(dataResult['surat'][4].date.substring(0,10));
+
+              var date = new Date(dataResult['surat'][4].date.substring(0,10));
+              var year= date.toLocaleString('en-us', { year: 'numeric' });
+              var month = date.toLocaleString('en-us', { month: 'short' });
+              var day = date.toLocaleString('en-us', { day: '2-digit' });
+              $('#tgl_rev2_rencana_selesai').val(day+'/'+month+'/'+year);
               $('#jam_rev2_rencana_selesai').val(dataResult['surat'][4].date.substring(11,16));
               $('#by_rev2_rencana_selesai').val(dataResult['surat'][4].created_by);
               
@@ -175,29 +205,53 @@ window.realesed_form = function (id){
             $('#keterangan_kks_released').val(dataResult['surat'][0].keterangan_kks);
             $("#siap_dioperasikan_"+dataResult['surat'][0].siap_dioperasikan).prop("checked", true);
             $("#dipindahkan_"+dataResult['surat'][0].dipindahkan).prop("checked", true);
-            $("#grounding_released_"+dataResult['surat'][0].grounding).prop("checked", true);
+            $("#grounding_released_"+dataResult['surat'][0].grounding_realeased).prop("checked", true);
             $("#bersih_"+dataResult['surat'][0].bersih).prop("checked", true);
             $('#jumlah_pekerja_released').html(dataResult['surat'][0].jml_pekerja+" orang");
 
             
             try{
-              $('#tgl_diajukan_released').val(dataResult['surat'][0].date.substring(0,10));
+              var date = new Date(dataResult['surat'][0].date.substring(0,10));
+              var year= date.toLocaleString('en-us', { year: 'numeric' });
+              var month = date.toLocaleString('en-us', { month: 'short' });
+              var day = date.toLocaleString('en-us', { day: '2-digit' });
+              $('#tgl_diajukan_released').val(day+'/'+month+'/'+year);
               $('#jam_diajukan_released').val(dataResult['surat'][0].date.substring(11,16));
               $('#by_diajukan_released').val(dataResult['surat'][0].created_by);
 
-              $('#tgl_dilaksanakan_released').val(dataResult['surat'][1].date.substring(0,10));
+
+              var date = new Date(dataResult['surat'][1].date.substring(0,10));
+              var year= date.toLocaleString('en-us', { year: 'numeric' });
+              var month = date.toLocaleString('en-us', { month: 'short' });
+              var day = date.toLocaleString('en-us', { day: '2-digit' });
+              $('#tgl_dilaksanakan_released').val(day+'/'+month+'/'+year);
               $('#jam_dilaksanakan_released').val(dataResult['surat'][1].date.substring(11,16));
               $('#by_dilaksanakan_released').val(dataResult['surat'][1].created_by);
 
-              $('#tgl_rencana_selesai_released').val(dataResult['surat'][2].date.substring(0,10));
+
+              var date = new Date(dataResult['surat'][2].date.substring(0,10));
+              var year= date.toLocaleString('en-us', { year: 'numeric' });
+              var month = date.toLocaleString('en-us', { month: 'short' });
+              var day = date.toLocaleString('en-us', { day: '2-digit' });
+              $('#tgl_rencana_selesai_released').val(day+'/'+month+'/'+year);
               $('#jam_rencana_selesai_released').val(dataResult['surat'][2].date.substring(11,16));
               $('#by_rencana_selesai_released').val(dataResult['surat'][2].created_by);
 
-              $('#tgl_rev1_rencana_selesai_released').val(dataResult['surat'][3].date.substring(0,10));
+
+              var date = new Date(dataResult['surat'][3].date.substring(0,10));
+              var year= date.toLocaleString('en-us', { year: 'numeric' });
+              var month = date.toLocaleString('en-us', { month: 'short' });
+              var day = date.toLocaleString('en-us', { day: '2-digit' });
+              $('#tgl_rev1_rencana_selesai_released').val(day+'/'+month+'/'+year);
               $('#jam_rev1_rencana_selesai_released').val(dataResult['surat'][3].date.substring(11,16));
               $('#by_rev1_rencana_selesai_released').val(dataResult['surat'][3].created_by);
   
-              $('#tgl_rev2_rencana_selesai_released').val(dataResult['surat'][4].date.substring(0,10));
+
+              var date = new Date(dataResult['surat'][4].date.substring(0,10));
+              var year= date.toLocaleString('en-us', { year: 'numeric' });
+              var month = date.toLocaleString('en-us', { month: 'short' });
+              var day = date.toLocaleString('en-us', { day: '2-digit' });
+              $('#tgl_rev2_rencana_selesai_released').val(day+'/'+month+'/'+year);
               $('#jam_rev2_rencana_selesai_released').val(dataResult['surat'][4].date.substring(11,16));
               $('#by_rev2_rencana_selesai_released').val(dataResult['surat'][4].created_by);
               
@@ -265,7 +319,9 @@ window.filter_list = function (u)
 }
 
 
-
+$('#type, #unit').change(function(){
+  $('#no_tagging').val($('#type').val()+'-'+$('#no_tagging3').val()+$('#no_tagging4').val()+$('#no_tagging5').val()+'-'+$('#unit').val())
+});
 
   $('#view_surat_modal').on('hidden.bs.modal', function (e) {
     $('#surat_view_div').show();

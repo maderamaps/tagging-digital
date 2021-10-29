@@ -16,7 +16,7 @@
                         <div style="display: flex"> <b>Nomor Tagging</b> 
                           <table class="tableNumber">
                             <td>
-                              <select name="type" data-live-search="true" class="form-control selectpicker" required>
+                              <select name="type" id="type" data-live-search="true" class="form-control selectpicker" required>
                                 <option value="">-- Type --</option>
                                 <option value="HMK">HMK</option>
                                 <option value="HLT">HLT</option>
@@ -25,23 +25,24 @@
                             </td>
                             <td style="border: 0"></td>
                             <td>
-                              <input type="text" name='no_tagging3' maxlength="1" class="inumber" value="{{$tagging[0]}}" required>
+                              <input type="text" name='no_tagging3' id="no_tagging3" maxlength="1" class="inumber" value="{{$tagging[0]}}" readonly>
                             </td>
                             <td>
-                              <input type="text" name='no_tagging4' maxlength="1" class="inumber" value="{{$tagging[1]}}" required>
+                              <input type="text" name='no_tagging4' id="no_tagging4" maxlength="1" class="inumber" value="{{$tagging[1]}}" readonly>
                             </td>
                             <td>
-                              <input type="text" name='no_tagging5' maxlength="1" class="inumber" value="{{$tagging[2]}}" required>
+                              <input type="text" name='no_tagging5' id="no_tagging5" maxlength="1" class="inumber" value="{{$tagging[2]}}" readonly>
                             </td>
                             <td style="border: 0"></td>
                             <td>
-                              <select name="unit" data-live-search="true" class="form-control selectpicker" required>
+                              <select name="unit" id="unit" data-live-search="true" class="form-control selectpicker" required>
                                 <option value="">-- Unit --</option>
                                 <option value="U1">U1</option>
                                 <option value="U2">U2</option>
                                 <option value="U3">U3 </option>
                               </select>
                             </td>
+                            <input name="no_tagging" id="no_tagging" type="text" style="display: none" >
                           </table> 
                         </div>
                       </td>
@@ -97,7 +98,7 @@
                   </tr>
                   <tr>
                     <td colspan="1" style="border: 0">Rev2 rencana selesai</td>
-                    <td colspan="1" style="border: 0">Tgl<input type="date" class="mr-5" name="rev2_rencana_selesai_tgl"> Jam<input type="time" name="rev2_rencana_selesai_time"></td>
+                    <td colspan="1" style="border: 0">Tgl<input type="date" class="mr-5" name="rev2_rencana_selesai_date"> Jam<input type="time" name="rev2_rencana_selesai_time"></td>
                     {{-- <td colspan="2" style="border: 0"><div style="display: flex">Oleh :<div><input type="text" class="inumber" name="rev2_rencana_selesai_oleh"></div></div></td> --}}
                   </tr>
               </table>

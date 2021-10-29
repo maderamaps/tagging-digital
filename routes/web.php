@@ -17,11 +17,17 @@ Route::get('/', function () {
     return view('auth/login');
 });
 
-Auth::routes();
+Auth::routes([
+    'register' => false, // Registration Routes...
+    'verify' => false, // Email Verification Routes...
+  ]);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Auth::routes();
+Auth::routes([
+    'register' => false, // Registration Routes...
+    'verify' => false, // Email Verification Routes...
+  ]);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/dashboard', [App\Http\Controllers\dashboard::class, 'dashboard'])->name('home');
@@ -40,5 +46,7 @@ Route::post('/peralatan_add', [App\Http\Controllers\dashboard::class, 'peralatan
 Route::get('/peralatan_delete/{id}', [App\Http\Controllers\dashboard::class, 'peralatan_delete'])->name('peralatan_delete');
 
 Route::post('/print_page', [App\Http\Controllers\dashboard::class, 'print_page'])->name('print_page');
+
+
 
 
